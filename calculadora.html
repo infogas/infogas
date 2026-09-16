@@ -4,8 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculadora de biogás: estime produção de biogás, metano e energia a partir de resíduos orgânicos — projeto InfoGás.">
+    <meta name="theme-color" content="#123c40">
     <title>InfoGás - Calculadora de Biogás</title>
     <style>
+        /* =========================
+           TOKENS (mesmos do index.html)
+        ========================= */
+
+        :root {
+            --verde-escuro: #123c40;
+            --verde-profundo: #062f3a;
+            --teal: #1f7d78;
+            --teal-claro: #159a9c;
+            --menta: #d8ece9;
+            --menta-clara: #eaf4f2;
+            --laranja: #f39c12;
+            --fundo: #f5f7f4;
+            --texto: #2c3a3a;
+            --texto-suave: #55686a;
+
+            --sombra-suave: 0 4px 14px rgba(18, 60, 64, 0.07);
+            --sombra-media: 0 10px 28px rgba(18, 60, 64, 0.12);
+
+            --raio: 14px;
+        }
+
         html {
             scroll-behavior: smooth;
         }
@@ -18,19 +42,38 @@
 
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
-            background-color: #f4f9f5;
-            color: #1a2e22;
+            background-color: var(--fundo);
+            color: var(--texto);
+            overflow-x: hidden;
         }
 
-        /* CABEÇALHO */
+        img {
+            max-width: 100%;
+        }
+
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        select:focus-visible {
+            outline: 3px solid var(--laranja);
+            outline-offset: 2px;
+        }
+
+        /* =========================
+           CABEÇALHO
+        ========================= */
         header {
             background-color: #ffffff;
-            padding: 20px 60px;
+            padding: 16px 40px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border-bottom: 1px solid #e1ede4;
-            box-shadow: 0 2px 8px rgba(22, 101, 52, 0.05);
+            flex-wrap: wrap;
+            gap: 16px;
+            box-shadow: var(--sombra-suave);
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }
 
         .logo {
@@ -38,47 +81,63 @@
             align-items: center;
             gap: 12px;
             font-size: 24px;
-            font-weight: bold;
-            color: #16a34a;
-            letter-spacing: 1px;
+            font-weight: 700;
+            color: var(--teal);
+            letter-spacing: 0.5px;
         }
 
         .logo img {
             width: 40px;
             height: 40px;
             object-fit: contain;
+            border-radius: 8px;
         }
 
         nav {
             display: flex;
-            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 14px 26px;
             align-items: center;
         }
 
         nav a {
             text-decoration: none;
-            color: #4b5f52;
+            color: var(--texto);
             font-size: 15px;
-            font-weight: bold;
-            transition: 0.3s;
+            font-weight: 600;
+            padding: 6px 2px;
+            border-bottom: 2px solid transparent;
+            transition: color 0.25s ease, border-color 0.25s ease;
         }
 
-        nav a:hover, nav a.active {
-            color: #16a34a;
+        nav a:hover,
+        nav a.active {
+            color: var(--teal);
+            border-bottom-color: var(--teal);
+        }
+
+        nav a.active {
+            border-bottom-color: var(--laranja);
         }
 
         .contato {
-            background-color: #16a34a;
-            color: white !important;
-            padding: 10px 18px;
-            border-radius: 20px;
+            background-color: var(--teal);
+            color: #ffffff !important;
+            padding: 10px 20px;
+            border-radius: 999px;
+            border-bottom: none !important;
+            transition: background-color 0.25s ease, transform 0.2s ease;
         }
 
         .contato:hover {
-            background-color: #128a3e;
+            background-color: var(--verde-escuro);
+            transform: translateY(-1px);
         }
 
-        /* CONTEÚDO DA CALCULADORA */
+        /* =========================
+           CONTEÚDO DA CALCULADORA
+        ========================= */
         .calculator-container {
             max-width: 1200px;
             margin: 40px auto;
@@ -93,15 +152,15 @@
         }
 
         .calc-header h1 {
-            font-size: 32px;
-            color: #14532d;
+            font-size: clamp(24px, 4vw, 32px);
+            color: var(--verde-profundo);
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
         .calc-header p {
-            color: #5a6f60;
+            color: var(--texto-suave);
             font-size: 16px;
             margin-top: 5px;
         }
@@ -114,10 +173,10 @@
 
         .card {
             background-color: #ffffff;
-            border: 1px solid #e1ede4;
-            border-radius: 12px;
+            border: 1px solid #dfeceb;
+            border-radius: var(--raio);
             padding: 25px;
-            box-shadow: 0 2px 10px rgba(22, 101, 52, 0.06);
+            box-shadow: var(--sombra-suave);
         }
 
         .card-header {
@@ -129,12 +188,12 @@
 
         .card-header h2 {
             font-size: 20px;
-            color: #14532d;
+            color: var(--verde-profundo);
         }
 
         .card-header p {
             font-size: 13px;
-            color: #6b7f72;
+            color: var(--texto-suave);
         }
 
         /* FORMULÁRIO */
@@ -147,28 +206,30 @@
             font-size: 14px;
             font-weight: bold;
             margin-bottom: 8px;
-            color: #24382c;
+            color: var(--verde-escuro);
         }
 
         .form-hint {
             font-size: 12px;
-            color: #7c8f82;
+            color: #7c8f8c;
             margin-top: 6px;
         }
 
-        .select-input, .number-input-group input {
+        .select-input,
+        .number-input-group input {
             width: 100%;
             padding: 12px 15px;
-            background-color: #f7fbf8;
-            border: 1px solid #cfe3d5;
+            background-color: #f7fbfa;
+            border: 1px solid #cfe3e1;
             border-radius: 8px;
-            color: #1a2e22;
+            color: var(--texto);
             font-size: 15px;
             outline: none;
         }
 
-        .select-input:focus, .number-input-group input:focus {
-            border-color: #16a34a;
+        .select-input:focus,
+        .number-input-group input:focus {
+            border-color: var(--teal-claro);
         }
 
         .number-input-group {
@@ -181,11 +242,11 @@
         }
 
         .input-unit {
-            background-color: #e6f4ea;
-            color: #16a34a;
+            background-color: var(--menta-clara);
+            color: var(--teal);
             font-weight: bold;
             padding: 12px 18px;
-            border: 1px solid #cfe3d5;
+            border: 1px solid #cfe3e1;
             border-left: none;
             border-top-right-radius: 8px;
             border-bottom-right-radius: 8px;
@@ -194,7 +255,7 @@
 
         .btn-submit {
             width: 100%;
-            background-color: #16a34a;
+            background-color: var(--teal);
             color: #ffffff;
             border: none;
             padding: 14px;
@@ -210,23 +271,23 @@
         }
 
         .btn-submit:hover {
-            background-color: #128a3e;
+            background-color: var(--verde-escuro);
         }
 
         .coef-note {
             margin-top: 18px;
             font-size: 12px;
-            color: #6b7f72;
-            background-color: #f7fbf8;
-            border: 1px dashed #cfe3d5;
+            color: var(--texto-suave);
+            background-color: #f7fbfa;
+            border: 1px dashed #cfe3e1;
             border-radius: 8px;
             padding: 10px 12px;
         }
 
         /* PAINEL DE RESULTADOS */
         .main-result {
-            background: linear-gradient(135deg, #e6f4ea, #f4f9f5);
-            border: 1px solid #cfe3d5;
+            background: linear-gradient(135deg, var(--menta), var(--menta-clara));
+            border: 1px solid #cfe3e1;
             border-radius: 10px;
             padding: 20px;
             text-align: center;
@@ -236,7 +297,7 @@
         .main-result-title {
             font-size: 12px;
             letter-spacing: 1px;
-            color: #16a34a;
+            color: var(--teal);
             font-weight: bold;
             text-transform: uppercase;
         }
@@ -244,12 +305,12 @@
         .main-result-value {
             font-size: 42px;
             font-weight: bold;
-            color: #14532d;
+            color: var(--verde-profundo);
             margin: 10px 0;
         }
 
         .progress-bar-bg {
-            background-color: #d7ecdd;
+            background-color: #cfe6e3;
             height: 10px;
             border-radius: 5px;
             overflow: hidden;
@@ -257,7 +318,7 @@
         }
 
         .progress-bar-fill {
-            background-color: #16a34a;
+            background-color: var(--teal-claro);
             height: 100%;
             width: 10%;
             border-radius: 5px;
@@ -271,8 +332,8 @@
         }
 
         .sub-result-card {
-            background-color: #f7fbf8;
-            border: 1px solid #e1ede4;
+            background-color: #f7fbfa;
+            border: 1px solid #dfeceb;
             border-radius: 8px;
             padding: 15px;
             text-align: center;
@@ -280,7 +341,7 @@
 
         .sub-result-title {
             font-size: 11px;
-            color: #6b7f72;
+            color: var(--texto-suave);
             font-weight: bold;
             margin-top: 5px;
         }
@@ -288,13 +349,13 @@
         .sub-result-value {
             font-size: 18px;
             font-weight: bold;
-            color: #14532d;
+            color: var(--verde-profundo);
             margin-top: 8px;
         }
 
         .sub-result-subtitle {
             font-size: 11px;
-            color: #96a89d;
+            color: #96a8a5;
         }
 
         .equiv-grid {
@@ -305,18 +366,18 @@
         }
 
         .equiv-card {
-            background-color: #f7fbf8;
-            border: 1px solid #e1ede4;
+            background-color: #f7fbfa;
+            border: 1px solid #dfeceb;
             border-radius: 8px;
             padding: 12px;
             text-align: center;
             font-size: 13px;
-            color: #4b5f52;
+            color: var(--texto-suave);
         }
 
         .equiv-card strong {
             display: block;
-            color: #14532d;
+            color: var(--verde-profundo);
             font-size: 16px;
             margin-top: 4px;
         }
@@ -335,6 +396,8 @@
             justify-content: space-between;
             margin-top: 20px;
             text-align: center;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         .flow-step {
@@ -342,24 +405,24 @@
             flex-direction: column;
             align-items: center;
             font-size: 12px;
-            color: #4b5f52;
+            color: var(--texto-suave);
         }
 
         .flow-icon {
             width: 45px;
             height: 45px;
             border-radius: 50%;
-            background-color: #f7fbf8;
-            border: 1px solid #16a34a;
+            background-color: #f7fbfa;
+            border: 1px solid var(--teal-claro);
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 8px;
-            color: #16a34a;
+            color: var(--teal);
         }
 
         .flow-arrow {
-            color: #b7c9bd;
+            color: #b9cbc8;
             font-size: 18px;
         }
 
@@ -374,11 +437,11 @@
             gap: 10px;
             margin-bottom: 12px;
             font-size: 14px;
-            color: #33473b;
+            color: var(--texto);
         }
 
         .check-icon {
-            background-color: #16a34a;
+            background-color: var(--teal-claro);
             color: #ffffff;
             border-radius: 50%;
             width: 20px;
@@ -399,55 +462,74 @@
             font-size: 13px;
         }
 
-        .coef-table th, .coef-table td {
+        .coef-table th,
+        .coef-table td {
             text-align: left;
             padding: 10px 8px;
             border-bottom: 1px solid #e1ede4;
         }
 
         .coef-table th {
-            color: #16a34a;
+            color: var(--teal);
             font-size: 11px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
         .coef-table td {
-            color: #33473b;
+            color: var(--texto);
         }
 
         .source-note {
             font-size: 11px;
-            color: #96a89d;
+            color: #96a8a5;
             margin-top: 10px;
         }
 
         /* RODAPÉ */
         footer {
-            background-color: #ffffff;
-            color: #6b7f72;
+            background-color: var(--verde-escuro);
+            color: #d8e8e6;
             text-align: center;
-            padding: 25px;
+            padding: 30px 20px;
             margin-top: 50px;
             font-size: 14px;
-            border-top: 1px solid #e1ede4;
+            line-height: 1.8;
+            border-top: 4px solid var(--laranja);
         }
 
         @media (max-width: 900px) {
-            .calc-grid, .info-grid {
+
+            .calc-grid,
+            .info-grid {
                 grid-template-columns: 1fr;
             }
+
             .sub-results-grid {
                 grid-template-columns: 1fr;
             }
+        }
+
+        @media (max-width: 768px) {
             header {
-                padding: 15px 20px;
-                flex-wrap: wrap;
-                gap: 12px;
+                flex-direction: column;
+                padding: 16px 20px;
+                position: static;
             }
-            nav {
-                gap: 16px;
-                flex-wrap: wrap;
+
+            .calculator-container {
+                margin: 24px auto;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior: auto;
+            }
+
+            * {
+                transition-duration: 0.01ms !important;
             }
         }
     </style>
@@ -457,7 +539,7 @@
 
     <header>
         <div class="logo">
-            <img src="imgs/biogas.JPEG" alt="Logo Biogás" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'%2316a34a\'><path d=\'M12 2c-1 4-6 6-6 11a6 6 0 0 0 12 0c0-5-5-7-6-11z\'/></svg>'">
+            <img src="imgs/biogas.JPEG" alt="Logo Biogás" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 24 24\' fill=\'%231f7d78\'><path d=\'M12 2c-1 4-6 6-6 11a6 6 0 0 0 12 0c0-5-5-7-6-11z\'/></svg>'">
             <span>INFOGÁS</span>
         </div>
         <nav>
@@ -553,7 +635,7 @@
                 <div class="main-result">
                     <div class="main-result-title">Produção de Biogás</div>
                     <div class="main-result-value"><span id="res-biogas">0,0</span> m³</div>
-                    <div style="font-size: 12px; color: #4b5f52;">≈ <span id="res-biogas-dia">0,0</span> m³/dia ao longo de <span id="res-dias">30</span> dias</div>
+                    <div style="font-size: 12px; color: var(--texto-suave);">≈ <span id="res-biogas-dia">0,0</span> m³/dia ao longo de <span id="res-dias">30</span> dias</div>
                     <div class="progress-bar-bg">
                         <div class="progress-bar-fill" id="progress-fill"></div>
                     </div>
@@ -561,21 +643,21 @@
 
                 <div class="sub-results-grid">
                     <div class="sub-result-card">
-                        <div style="color: #d97706; font-size: 18px;">🔥</div>
+                        <div style="color: var(--laranja); font-size: 18px;">🔥</div>
                         <div class="sub-result-title">METANO (CH₄)</div>
                         <div class="sub-result-value"><span id="res-methane">0,0</span> m³</div>
                         <div class="sub-result-subtitle" id="res-methane-pct">(~60% do biogás)</div>
                     </div>
 
                     <div class="sub-result-card">
-                        <div style="color: #eab308; font-size: 18px;">⚡</div>
+                        <div style="color: #e0a422; font-size: 18px;">⚡</div>
                         <div class="sub-result-title">ENERGIA EQUIVALENTE</div>
                         <div class="sub-result-value"><span id="res-energy">0</span> kWh</div>
                         <div class="sub-result-subtitle">PCI CH₄ ≈ 9,9 kWh/m³</div>
                     </div>
 
                     <div class="sub-result-card">
-                        <div style="color: #16a34a; font-size: 18px;">🌱</div>
+                        <div style="color: var(--teal); font-size: 18px;">🌱</div>
                         <div class="sub-result-title">RESÍDUO UTILIZADO</div>
                         <div class="sub-result-value"><span id="res-input">50</span> kg</div>
                         <div class="sub-result-subtitle">(informado)</div>
@@ -626,31 +708,31 @@
         <div class="info-grid">
             <div class="card">
                 <h3>🔄 Como funciona?</h3>
-                <p style="font-size: 13px; color: #6b7f72; margin-top: 5px;">O biogás é gerado através da decomposição de matéria orgânica por bactérias, em ambiente sem oxigênio, dentro de um biodigestor.</p>
+                <p style="font-size: 13px; color: var(--texto-suave); margin-top: 5px;">O biogás é gerado através da decomposição de matéria orgânica por bactérias, em ambiente sem oxigênio, dentro de um biodigestor.</p>
 
                 <div class="flow-steps">
                     <div class="flow-step">
                         <div class="flow-icon">🗑️</div>
                         <strong>Resíduos orgânicos</strong>
-                        <span style="font-size: 10px; color: #96a89d;">(esterco, restos, etc.)</span>
+                        <span style="font-size: 10px; color: #96a8a5;">(esterco, restos, etc.)</span>
                     </div>
                     <div class="flow-arrow">➔</div>
                     <div class="flow-step">
                         <div class="flow-icon">🏺</div>
                         <strong>Biodigestor</strong>
-                        <span style="font-size: 10px; color: #96a89d;">(anaeróbico)</span>
+                        <span style="font-size: 10px; color: #96a8a5;">(anaeróbico)</span>
                     </div>
                     <div class="flow-arrow">➔</div>
                     <div class="flow-step">
                         <div class="flow-icon">🔥</div>
                         <strong>Biogás</strong>
-                        <span style="font-size: 10px; color: #96a89d;">(CH₄ e CO₂)</span>
+                        <span style="font-size: 10px; color: #96a8a5;">(CH₄ e CO₂)</span>
                     </div>
                     <div class="flow-arrow">➔</div>
                     <div class="flow-step">
                         <div class="flow-icon">⚡</div>
                         <strong>Energia</strong>
-                        <span style="font-size: 10px; color: #96a89d;">(elétrica/térmica)</span>
+                        <span style="font-size: 10px; color: #96a8a5;">(elétrica/térmica)</span>
                     </div>
                 </div>
             </div>
@@ -668,7 +750,7 @@
     </main>
 
     <footer>
-        © 2026 - Projeto Biogases | Feira Cultural ETEC <br>
+        © 2026 · Projeto Biogases | Feira Cultural ETEC <br>
         Desenvolvido pelos alunos do 1º Informática
     </footer>
 

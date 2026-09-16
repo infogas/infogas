@@ -5,10 +5,36 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Biogases: o que são, como são produzidos e seu papel na sustentabilidade — projeto InfoGás, Feira Cultural ETEC.">
+    <meta name="theme-color" content="#123c40">
 
-    <title>Biogases | Energia Sustentável</title>
+    <title>Biogases | Energia Sustentável — InfoGás</title>
 
     <style>
+        /* =========================
+           TOKENS (mesmos do index.html)
+        ========================= */
+
+        :root {
+            --verde-escuro: #123c40;
+            --verde-profundo: #062f3a;
+            --teal: #1f7d78;
+            --teal-claro: #159a9c;
+            --menta: #d8ece9;
+            --menta-clara: #eaf4f2;
+            --laranja: #f39c12;
+            --fundo: #f5f7f4;
+            --texto: #2c3a3a;
+            --texto-suave: #55686a;
+
+            --sombra-suave: 0 4px 14px rgba(18, 60, 64, 0.07);
+            --sombra-media: 0 10px 28px rgba(18, 60, 64, 0.12);
+            --sombra-forte: 0 16px 36px rgba(18, 60, 64, 0.18);
+
+            --raio: 14px;
+            --largura: 1100px;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -20,197 +46,290 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f6f3;
-            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--fundo);
+            color: var(--texto);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* CABEÇALHO */
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a:focus-visible,
+        summary:focus-visible {
+            outline: 3px solid var(--laranja);
+            outline-offset: 3px;
+            border-radius: 6px;
+        }
+
+        /* =========================
+           CABEÇALHO
+        ========================= */
 
         header {
-            background-color: white;
-            padding: 20px 60px;
-
+            background-color: #fff;
+            padding: 16px 40px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-
+            flex-wrap: wrap;
+            gap: 16px;
+            box-shadow: var(--sombra-suave);
             position: sticky;
             top: 0;
             z-index: 10;
         }
 
         .logo {
-            font-size: 25px;
-            font-weight: bold;
-            color: #246b45;
-        }
-
-        header a {
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--teal);
+            letter-spacing: 0.5px;
         }
 
         nav {
             display: flex;
-            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 14px 26px;
             align-items: center;
         }
 
         nav a {
             text-decoration: none;
-            color: #333;
+            color: var(--texto);
             font-size: 15px;
-            font-weight: bold;
-            transition: 0.3s;
+            font-weight: 600;
+            padding: 6px 2px;
+            border-bottom: 2px solid transparent;
+            transition: color 0.25s ease, border-color 0.25s ease;
         }
 
         nav a:hover {
-            color: #246b45;
+            color: var(--teal);
+            border-bottom-color: var(--teal);
         }
 
         .contato {
-            background-color: #246b45;
-            color: white;
-            padding: 10px 18px;
-            border-radius: 7px;
+            background-color: var(--teal);
+            color: #fff !important;
+            padding: 10px 20px;
+            border-radius: 999px;
+            border-bottom: none !important;
+            transition: background-color 0.25s ease, transform 0.2s ease;
         }
 
         .contato:hover {
-            background-color: #174d31;
-            color: white;
+            background-color: var(--verde-escuro);
+            transform: translateY(-1px);
         }
 
         .voltar {
-            background-color: #246b45;
-            color: white;
+            background-color: transparent;
+            color: var(--teal) !important;
             padding: 10px 18px;
-            border-radius: 7px;
+            border: 2px solid var(--teal);
+            border-radius: 999px;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 700;
+            font-size: 14px;
+            white-space: nowrap;
+            transition: background-color 0.25s ease, color 0.25s ease;
         }
 
         .voltar:hover {
-            background-color: #174d31;
+            background-color: var(--teal);
+            color: #fff !important;
         }
 
-
-        /* PARTE PRINCIPAL */
+        /* =========================
+           HERO
+        ========================= */
 
         .inicio {
-            min-height: 500px;
+            background: linear-gradient(135deg, var(--verde-escuro) 0%, var(--verde-profundo) 100%);
+            min-height: 420px;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 60px 20px;
-            background-color: #e9f1eb;
+            padding: 70px 20px;
         }
 
         .inicio div {
-            max-width: 750px;
+            max-width: 720px;
+        }
+
+        .inicio .selo {
+            display: inline-block;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            background-color: var(--laranja);
+            color: #3a2600;
+            border-radius: 999px;
+            padding: 7px 18px;
+            margin-bottom: 18px;
         }
 
         .inicio h1 {
-            font-size: 48px;
-            color: #246b45;
-            margin-bottom: 20px;
+            font-size: clamp(30px, 6vw, 48px);
+            line-height: 1.15;
+            color: #fff;
+            font-weight: 800;
+            margin-bottom: 18px;
         }
 
         .inicio p {
-            font-size: 19px;
+            font-size: clamp(16px, 2.2vw, 19px);
             line-height: 1.6;
-            color: #555;
+            color: #cfe6e3;
         }
 
-
-        /* SEÇÕES */
+        /* =========================
+           SEÇÕES
+        ========================= */
 
         section {
-            padding: 70px 10%;
+            padding: 70px 8%;
         }
 
-        section h2 {
+        .titulo-secao {
             text-align: center;
-            color: #246b45;
-            font-size: 32px;
-            margin-bottom: 20px;
+            margin-bottom: 40px;
         }
 
-        section p {
-            text-align: center;
-            max-width: 800px;
-            margin: auto;
+        .titulo-secao h2 {
+            font-size: clamp(26px, 4vw, 36px);
+            color: var(--verde-profundo);
+            font-weight: 800;
+        }
 
-            line-height: 1.7;
+        .titulo-secao h2::after {
+            content: "";
+            display: block;
+            width: 90px;
+            height: 4px;
+            margin: 14px auto 0;
+            border-radius: 999px;
+            background: linear-gradient(to right, var(--laranja), var(--teal-claro));
+        }
+
+        section > p.intro {
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto;
             font-size: 17px;
+            line-height: 1.8;
+            color: var(--texto-suave);
         }
 
+        .producao {
+            background: var(--menta);
+        }
 
-        /* CARDS */
+        .producao .titulo-secao h2 {
+            color: var(--verde-escuro);
+        }
+
+        /* =========================
+           CARDS
+        ========================= */
 
         .cards {
             display: flex;
             justify-content: center;
-            gap: 25px;
-
+            gap: 22px;
             margin-top: 40px;
-
             flex-wrap: wrap;
         }
 
         .card {
-            background-color: white;
-
+            background-color: #fff;
             width: 280px;
-            padding: 30px;
-
-            border-radius: 12px;
-
-            text-align: center;
-
-            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
-
-            transition: 0.3s;
+            max-width: 100%;
+            padding: 28px 26px;
+            border-radius: var(--raio);
+            text-align: left;
+            box-shadow: var(--sombra-suave);
+            border-top: 5px solid var(--teal-claro);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .card:hover {
             transform: translateY(-5px);
+            box-shadow: var(--sombra-media);
         }
 
         .card h3 {
-            color: #246b45;
-            margin-bottom: 15px;
+            color: var(--verde-escuro);
+            font-size: 19px;
+            font-weight: 700;
+            margin-bottom: 10px;
         }
 
         .card p {
             font-size: 15px;
+            color: var(--texto-suave);
+            line-height: 1.65;
         }
 
-
-        /* PRODUÇÃO */
-
-        .producao {
-            background-color: #e9f1eb;
-        }
-
-
-        /* RODAPÉ */
+        /* =========================
+           RODAPÉ
+        ========================= */
 
         footer {
-            background-color: #183d29;
-            color: white;
-
+            background-color: var(--verde-escuro);
+            color: #d8e8e6;
             text-align: center;
-
-            padding: 30px;
+            padding: 34px 20px;
+            font-size: 14px;
+            line-height: 1.9;
+            border-top: 4px solid var(--laranja);
         }
 
-        footer p {
-            font-size: 14px;
+        /* =========================
+           RESPONSIVIDADE
+        ========================= */
+
+        @media (max-width: 900px) {
+            section {
+                padding: 60px 6%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 16px 20px;
+                position: static;
+            }
+
+            .inicio {
+                min-height: auto;
+                padding: 55px 20px;
+            }
+
+            section {
+                padding: 50px 20px;
+            }
+
+            .card {
+                width: 100%;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            * {
+                transition-duration: 0.01ms !important;
+            }
         }
     </style>
 
@@ -219,222 +338,117 @@
 
 <body>
 
-
     <!-- CABEÇALHO -->
-
     <header>
+        <div class="logo">INFOGÁS</div>
 
-        <div class="logo">
-            BIOGASES
-        </div>
-
-        <nav>
-
+        <nav aria-label="Menu principal">
             <a href="#inicio">Início</a>
-
             <a href="#biogases">Biogases</a>
-
             <a href="#producao">Produção</a>
-
             <a href="#sustentabilidade">Sustentabilidade</a>
-
-            <!-- REDIRECIONAMENTO -->
-
-            <a href="contato.html" class="contato">
-                Contato
-            </a>
-
+            <a href="contato.html" class="contato">Contato</a>
         </nav>
 
-        <a href="index.html">
-            ← Voltar
-        </a>
-
+        <a href="index.html" class="voltar">← Voltar</a>
     </header>
 
 
-
     <!-- INÍCIO -->
-
     <section class="inicio" id="inicio">
-
         <div>
-
-            <h1>
-                Energia que vem da natureza
-            </h1>
-
+            <span class="selo">Energia · Sustentabilidade · Inovação</span>
+            <h1>Energia que vem da natureza</h1>
             <p>
-                Os biogases são uma alternativa sustentável para
-                a produção de energia, aproveitando resíduos orgânicos
-                e transformando-os em uma fonte energética.
+                Os biogases são uma alternativa sustentável para a produção de energia,
+                aproveitando resíduos orgânicos e transformando-os em uma fonte energética.
             </p>
-
         </div>
-
     </section>
 
 
     <!-- BIOGASES -->
-
     <section id="biogases">
-
-        <h2>
-            O que são biogases?
-        </h2>
-
-        <p>
-            Biogases são gases produzidos a partir da decomposição
-            de matéria orgânica. Eles podem ser utilizados como
-            fonte de energia e também contribuem para o aproveitamento
-            de resíduos que seriam descartados no meio ambiente.
-        </p>
-
-
-        <div class="cards">
-
-            <div class="card">
-
-                <h3>
-                    Energia
-                </h3>
-
-                <p>
-                    Pode ser utilizado para geração de energia
-                    elétrica e térmica.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <h3>
-                    Resíduos
-                </h3>
-
-                <p>
-                    Aproveita materiais orgânicos que poderiam
-                    ser descartados.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <h3>
-                    Sustentabilidade
-                </h3>
-
-                <p>
-                    Incentiva o uso de fontes renováveis
-                    e o reaproveitamento de recursos.
-                </p>
-
-            </div>
-
+        <div class="titulo-secao">
+            <h2>O que são biogases?</h2>
         </div>
 
+        <p class="intro">
+            Biogases são gases produzidos a partir da decomposição de matéria orgânica.
+            Eles podem ser utilizados como fonte de energia e também contribuem para o
+            aproveitamento de resíduos que seriam descartados no meio ambiente.
+        </p>
+
+        <div class="cards">
+            <div class="card">
+                <h3>Energia</h3>
+                <p>Pode ser utilizado para geração de energia elétrica e térmica.</p>
+            </div>
+
+            <div class="card">
+                <h3>Resíduos</h3>
+                <p>Aproveita materiais orgânicos que poderiam ser descartados.</p>
+            </div>
+
+            <div class="card">
+                <h3>Sustentabilidade</h3>
+                <p>Incentiva o uso de fontes renováveis e o reaproveitamento de recursos.</p>
+            </div>
+        </div>
     </section>
 
 
     <!-- PRODUÇÃO -->
-
     <section class="producao" id="producao">
+        <div class="titulo-secao">
+            <h2>Como é produzido?</h2>
+        </div>
 
-        <h2>
-            Como é produzido?
-        </h2>
-
-        <p>
-            A produção acontece por meio da decomposição de
-            matéria orgânica em um ambiente sem oxigênio.
-            Esse processo é conhecido como digestão anaeróbia
+        <p class="intro">
+            A produção acontece por meio da decomposição de matéria orgânica em um
+            ambiente sem oxigênio. Esse processo é conhecido como digestão anaeróbia
             e resulta na formação de uma mistura de gases.
         </p>
-
     </section>
 
 
     <!-- SUSTENTABILIDADE -->
-
     <section id="sustentabilidade">
-
-        <h2>
-            Biogases e sustentabilidade
-        </h2>
-
-        <p>
-            O aproveitamento de biogases pode contribuir para
-            uma economia mais sustentável, promovendo o
-            reaproveitamento de resíduos e a utilização de
-            fontes alternativas de energia.
-        </p>
-
-
-        <div class="cards">
-
-            <div class="card">
-
-                <h3>
-                    ♻ Reaproveitamento
-                </h3>
-
-                <p>
-                    Resíduos orgânicos podem ser utilizados
-                    como matéria-prima.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <h3>
-                    ⚡ Energia
-                </h3>
-
-                <p>
-                    Os gases produzidos podem ser utilizados
-                    para geração de energia.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <h3>
-                    🌱 Meio ambiente
-                </h3>
-
-                <p>
-                    A tecnologia ajuda a dar um novo destino
-                    aos resíduos orgânicos.
-                </p>
-
-            </div>
-
+        <div class="titulo-secao">
+            <h2>Biogases e sustentabilidade</h2>
         </div>
 
+        <p class="intro">
+            O aproveitamento de biogases pode contribuir para uma economia mais
+            sustentável, promovendo o reaproveitamento de resíduos e a utilização
+            de fontes alternativas de energia.
+        </p>
+
+        <div class="cards">
+            <div class="card">
+                <h3>♻️ Reaproveitamento</h3>
+                <p>Resíduos orgânicos podem ser utilizados como matéria-prima.</p>
+            </div>
+
+            <div class="card">
+                <h3>⚡ Energia</h3>
+                <p>Os gases produzidos podem ser utilizados para geração de energia.</p>
+            </div>
+
+            <div class="card">
+                <h3>🌱 Meio ambiente</h3>
+                <p>A tecnologia ajuda a dar um novo destino aos resíduos orgânicos.</p>
+            </div>
+        </div>
     </section>
 
 
     <!-- RODAPÉ -->
-
     <footer>
-
-        <p>
-            © 2026 - Projeto Biogases | Feira Cultural ETEC
-        </p>
-
-        <p>
-            Desenvolvido pelos alunos do 1º Informática
-        </p>
-
+        © 2026 · Projeto Biogases | Feira Cultural ETEC
+        <br>
+        Desenvolvido pelos alunos do 1º Informática
     </footer>
-
 
 </body>
 

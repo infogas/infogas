@@ -5,10 +5,33 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fale com o time do InfoGás sobre o projeto de biogás da Feira Cultural ETEC.">
+    <meta name="theme-color" content="#123c40">
 
-    <title>Contato | Biogases</title>
+    <title>Contato | InfoGás</title>
 
     <style>
+        /* =========================
+           TOKENS (mesmos das outras páginas)
+        ========================= */
+
+        :root {
+            --verde-escuro: #123c40;
+            --verde-profundo: #062f3a;
+            --teal: #1f7d78;
+            --teal-claro: #159a9c;
+            --menta: #d8ece9;
+            --menta-clara: #eaf4f2;
+            --laranja: #f39c12;
+            --fundo: #f5f7f4;
+            --texto: #2c3a3a;
+            --texto-suave: #55686a;
+
+            --sombra-suave: 0 4px 14px rgba(18, 60, 64, 0.07);
+            --sombra-media: 0 10px 28px rgba(18, 60, 64, 0.12);
+
+            --raio: 14px;
+        }
 
         * {
             margin: 0;
@@ -16,143 +39,227 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f6f3;
-            color: #333;
+        html {
+            scroll-behavior: smooth;
         }
 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--fundo);
+            color: var(--texto);
+            overflow-x: hidden;
+        }
+
+        a:focus-visible,
+        button:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible {
+            outline: 3px solid var(--laranja);
+            outline-offset: 2px;
+        }
+
+        /* =========================
+           CABEÇALHO
+        ========================= */
 
         header {
-            background-color: white;
-            padding: 20px 60px;
-
+            background-color: #fff;
+            padding: 16px 40px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            flex-wrap: wrap;
+            gap: 16px;
+            box-shadow: var(--sombra-suave);
+            position: sticky;
+            top: 0;
+            z-index: 10;
         }
 
         .logo {
-            font-size: 25px;
-            font-weight: bold;
-            color: #246b45;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--teal);
+            letter-spacing: 0.5px;
         }
 
-        header a {
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 14px 26px;
+            align-items: center;
+        }
+
+        nav a {
             text-decoration: none;
-            color: #333;
-            font-weight: bold;
+            color: var(--texto);
+            font-size: 15px;
+            font-weight: 600;
+            padding: 6px 2px;
+            border-bottom: 2px solid transparent;
+            transition: color 0.25s ease, border-color 0.25s ease;
         }
 
-        header a:hover {
-            color: #246b45;
+        nav a:hover,
+        nav a.active {
+            color: var(--teal);
+            border-bottom-color: var(--teal);
         }
 
+        nav a.active {
+            border-bottom-color: var(--laranja);
+        }
+
+        .voltar {
+            background-color: transparent;
+            color: var(--teal) !important;
+            padding: 10px 18px;
+            border: 2px solid var(--teal);
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            white-space: nowrap;
+            transition: background-color 0.25s ease, color 0.25s ease;
+        }
+
+        .voltar:hover {
+            background-color: var(--teal);
+            color: #fff !important;
+        }
+
+        /* =========================
+           CONTEÚDO
+        ========================= */
 
         .container {
-            max-width: 1000px;
+            max-width: 1050px;
             margin: 60px auto;
-            padding: 20px;
+            padding: 0 20px;
         }
 
         .titulo {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 45px;
         }
 
         .titulo h1 {
-            color: #246b45;
-            font-size: 38px;
-            margin-bottom: 10px;
+            color: var(--verde-profundo);
+            font-size: clamp(28px, 5vw, 38px);
+            margin-bottom: 12px;
         }
 
         .titulo p {
-            color: #666;
+            color: var(--texto-suave);
             font-size: 17px;
         }
-
-
-        /* contact */
 
         .contato {
             display: flex;
-            gap: 30px;
+            gap: 28px;
             align-items: stretch;
+            flex-wrap: wrap;
         }
 
-
-        /* informations */
+        /* PAINEL DE INFORMAÇÕES */
 
         .informacoes {
-            width: 40%;
-            background-color: #246b45;
-            color: white;
-
-            padding: 35px;
-            border-radius: 15px;
+            flex: 1 1 340px;
+            background: linear-gradient(135deg, var(--verde-escuro) 0%, var(--verde-profundo) 100%);
+            color: #fff;
+            padding: 36px;
+            border-radius: var(--raio);
+            box-shadow: var(--sombra-media);
         }
 
         .informacoes h2 {
-            margin-bottom: 15px;
+            margin-bottom: 14px;
+            font-size: 22px;
         }
 
-        .informacoes > p {
-            line-height: 1.6;
+        .informacoes>p {
+            line-height: 1.7;
             margin-bottom: 30px;
+            color: #cfe6e3;
         }
 
         .item {
-            margin-bottom: 25px;
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            margin-bottom: 22px;
+        }
+
+        .item-icone {
+            flex-shrink: 0;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 17px;
         }
 
         .item h3 {
-            font-size: 17px;
-            margin-bottom: 5px;
+            font-size: 15px;
+            margin-bottom: 4px;
+            color: #fff;
         }
 
         .item p {
-            color: #dcebe2;
+            color: #cfe6e3;
+            font-size: 14.5px;
+            line-height: 1.5;
         }
 
+        .item p+p {
+            margin-top: 2px;
+        }
 
-        /* formularioi */
+        /* FORMULÁRIO */
 
         .formulario {
-            width: 60%;
-            background-color: white;
-            padding: 35px;
-            border-radius: 15px;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            flex: 1 1 420px;
+            background-color: #fff;
+            padding: 36px;
+            border-radius: var(--raio);
+            box-shadow: var(--sombra-suave);
         }
 
         .formulario h2 {
-            color: #246b45;
+            color: var(--verde-profundo);
             margin-bottom: 25px;
+            font-size: 22px;
         }
 
         label {
             display: block;
             margin-bottom: 7px;
-            font-weight: bold;
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--verde-escuro);
         }
 
         input,
         textarea {
             width: 100%;
-            padding: 12px;
+            padding: 12px 14px;
             margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 7px;
-            font-family: Arial, sans-serif;
+            border: 1px solid #d3e4e2;
+            border-radius: 8px;
+            background-color: #f7fbfa;
+            font-family: inherit;
             font-size: 15px;
+            color: var(--texto);
         }
 
         input:focus,
         textarea:focus {
             outline: none;
-            border-color: #246b45;
+            border-color: var(--teal-claro);
         }
 
         textarea {
@@ -162,70 +269,77 @@
 
         button {
             width: 100%;
-
-            padding: 13px;
-
+            padding: 14px;
             border: none;
-
-            border-radius: 7px;
-
-            background-color: #246b45;
-            color: white;
-
+            border-radius: 8px;
+            background-color: var(--teal);
+            color: #fff;
             font-size: 16px;
-            font-weight: bold;
-
+            font-weight: 700;
             cursor: pointer;
-
-            transition: 0.3s;
+            transition: background-color 0.25s ease;
         }
 
         button:hover {
-            background-color: #174d31;
+            background-color: var(--verde-escuro);
         }
 
+        .status-envio {
+            margin-top: 14px;
+            font-size: 14px;
+            color: var(--teal);
+            font-weight: 600;
+            text-align: center;
+            min-height: 20px;
+        }
 
-        /* baixo */
+        /* =========================
+           RODAPÉ
+        ========================= */
 
         footer {
-            background-color: #183d29;
-            color: white;
-
+            background-color: var(--verde-escuro);
+            color: #d8e8e6;
             text-align: center;
-
-            padding: 25px;
-
+            padding: 30px 20px;
             margin-top: 60px;
-        }
-
-        footer p {
             font-size: 14px;
+            line-height: 1.8;
+            border-top: 4px solid var(--laranja);
         }
 
+        /* =========================
+           RESPONSIVIDADE
+        ========================= */
 
-        /* CELULAR */
-
-        @media (max-width: 700px) {
+        @media (max-width: 768px) {
 
             header {
-                padding: 20px;
+                flex-direction: column;
+                padding: 16px 20px;
+                position: static;
             }
 
-            .contato {
-                flex-direction: column;
+            .container {
+                margin: 40px auto;
             }
 
             .informacoes,
             .formulario {
-                width: 100%;
+                padding: 28px 24px;
             }
-
-            .titulo h1 {
-                font-size: 30px;
-            }
-
         }
 
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior: auto;
+            }
+
+            * {
+                transition-duration: 0.01ms !important;
+            }
+        }
     </style>
 
 </head>
@@ -233,189 +347,112 @@
 
 <body>
 
-
     <!-- topo -->
-
     <header>
+        <div class="logo">INFOGÁS</div>
 
-        <div class="logo">
-            BIOGASES
-        </div>
+        <nav aria-label="Menu principal">
+            <a href="index.html">Início</a>
+            <a href="calculadora.html">Calculadora</a>
+            <a href="sustentabilidade.html">Sustentabilidade</a>
+            <a href="contato.html" class="active">Contato</a>
+        </nav>
 
-        <a href="index.html">
-            ← Voltar
-        </a>
-
+        <a href="index.html" class="voltar">← Voltar</a>
     </header>
 
 
-    <!-- informations -->
-
     <main class="container">
 
-
         <div class="titulo">
-
-            <h1>
-                Entre em contato
-            </h1>
-
-            <p>
-                Quer saber mais sobre biogases e energia sustentável?
-                Fale conosco.
-            </p>
-
+            <h1>Entre em contato</h1>
+            <p>Quer saber mais sobre biogases e energia sustentável? Fale conosco.</p>
         </div>
-
 
         <div class="contato">
 
-
-            <!-- informations -->
-
+            <!-- informações -->
             <div class="informacoes">
 
-                <h2>
-                    Fale conosco
-                </h2>
-
-                <p>
-                    Estamos disponíveis para responder dúvidas,
-                    sugestões e informações sobre nosso projeto.
-                </p>
-
+                <h2>Fale conosco</h2>
+                <p>Estamos disponíveis para responder dúvidas, sugestões e informações sobre nosso projeto.</p>
 
                 <div class="item">
-
-                    <h3>
-                        📧 E-mail
-                    </h3>
-
-                    <p>
-                        infogas1809@gmail.com
-                    </p>
-
-                </div>
-
-
-                <div class="item">
-
-                    <h3>
-                        📞 Telefone
-                    </h3>
-
-                    <p>
-                        (11) 99256-1427
-                    </p>
-
-                </div>
-
-                 <div class="item">
-
-                    <p>
-                        (11) 94854-6634
-                    </p>
-
+                    <span class="item-icone" aria-hidden="true">📧</span>
+                    <div>
+                        <h3>E-mail</h3>
+                        <p>infogas1809@gmail.com</p>
+                    </div>
                 </div>
 
                 <div class="item">
+                    <span class="item-icone" aria-hidden="true">📞</span>
+                    <div>
+                        <h3>Telefone</h3>
+                        <p>(11) 99256-1427</p>
+                        <p>(11) 94854-6634</p>
+                    </div>
+                </div>
 
-                    <h3>
-                        📍 Localização
-                    </h3>
-
-                    <p>
-                        Francisco morato - SP
-                    </p>
-
+                <div class="item">
+                    <span class="item-icone" aria-hidden="true">📍</span>
+                    <div>
+                        <h3>Localização</h3>
+                        <p>Francisco Morato - SP</p>
+                    </div>
                 </div>
 
             </div>
 
-
-            <!-- escrevivel -->
-
+            <!-- formulário -->
             <div class="formulario">
 
-                <h2>
-                    Envie uma mensagem..
-                </h2>
+                <h2>Envie uma mensagem</h2>
 
+                <form id="form-contato">
 
-                <form>
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" placeholder="Seu nome" required>
 
-                    <label for="nome">
-                        Nome
-                    </label>
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" placeholder="seuemail@exemplo.com" required>
 
-                    <input
-                        type="text"
-                        id="nome"
-                        placeholder="Seu nome"
-                        required
-                    >
+                    <label for="assunto">Assunto</label>
+                    <input type="text" id="assunto" placeholder="Sobre o que deseja falar?" required>
 
+                    <label for="mensagem">Mensagem</label>
+                    <textarea id="mensagem" placeholder="Digite sua mensagem..." required></textarea>
 
-                    <label for="email">
-                        E-mail
-                    </label>
+                    <button type="submit">Enviar mensagem</button>
 
-                    <input
-                        type="email"
-                        id="email"
-                        placeholder="seuemail@exemplo.com"
-                        required
-                    >
-
-
-                    <label for="assunto">
-                        Assunto
-                    </label>
-
-                    <input
-                        type="text"
-                        id="assunto"
-                        placeholder="Sobre o que deseja falar?"
-                        required
-                    >
-
-
-                    <label for="mensagem">
-                        Mensagem
-                    </label>
-
-                    <textarea
-                        id="mensagem"
-                        placeholder="Digite sua mensagem..."
-                        required
-                    ></textarea>
-
-
-                    <button type="submit">
-                        Enviar mensagem
-                    </button>
+                    <p class="status-envio" id="status-envio" role="status" aria-live="polite"></p>
 
                 </form>
 
             </div>
-
 
         </div>
 
     </main>
 
     <footer>
-
-        <p>
-            © 2026 - Projeto Biogases | Feira Cultural ETEC
-        </p>
-
-        <p>
-            Desenvolvido pelos alunos do 1º Informática
-        </p>
-
+        © 2026 · Projeto Biogases | Feira Cultural ETEC
+        <br>
+        Desenvolvido pelos alunos do 1º Informática
     </footer>
 
+    <script>
+        // Este formulário ainda não está ligado a um servidor de e-mail.
+        // Por enquanto, ao enviar, mostramos uma confirmação visual e
+        // sugerimos o contato direto por e-mail, para não deixar o
+        // visitante achando que a mensagem foi enviada de verdade.
+        document.getElementById('form-contato').addEventListener('submit', function (evento) {
+            evento.preventDefault();
+            var status = document.getElementById('status-envio');
+            status.textContent = 'Recebemos seus dados! Se preferir uma resposta mais rápida, escreva direto para infogas1809@gmail.com.';
+            this.reset();
+        });
+    </script>
 
 </body>
 
