@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Biogases | Energia Sustentável</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f3;
+            color: #333;
+        }
+
+        /* CABEÇALHO */
+
+        header {
+            background-color: white;
+            padding: 20px 60px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #246b45;
+        }
+
+        header a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 15px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #246b45;
+        }
+
+        .contato {
+            background-color: #246b45;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 7px;
+        }
+
+        .contato:hover {
+            background-color: #174d31;
+            color: white;
+        }
+
+        .voltar {
+            background-color: #246b45;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 7px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .voltar:hover {
+            background-color: #174d31;
+        }
+
+
+        /* PARTE PRINCIPAL */
+
+        .inicio {
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+            background-color: #e9f1eb;
+        }
+
+        .inicio div {
+            max-width: 750px;
+        }
+
+        .inicio h1 {
+            font-size: 48px;
+            color: #246b45;
+            margin-bottom: 20px;
+        }
+
+        .inicio p {
+            font-size: 19px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+
+        /* SEÇÕES */
+
+        section {
+            padding: 70px 10%;
+        }
+
+        section h2 {
+            text-align: center;
+            color: #246b45;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        section p {
+            text-align: center;
+            max-width: 800px;
+            margin: auto;
+
+            line-height: 1.7;
+            font-size: 17px;
+        }
+
+
+        /* CARDS */
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+
+            margin-top: 40px;
+
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: white;
+
+            width: 280px;
+            padding: 30px;
+
+            border-radius: 12px;
+
+            text-align: center;
+
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: #246b45;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            font-size: 15px;
+        }
+
+
+        /* PRODUÇÃO */
+
+        .producao {
+            background-color: #e9f1eb;
+        }
+
+
+        /* RODAPÉ */
+
+        footer {
+            background-color: #183d29;
+            color: white;
+
+            text-align: center;
+
+            padding: 30px;
+        }
+
+        footer p {
+            font-size: 14px;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- CABEÇALHO -->
+
+    <header>
+
+        <div class="logo">
+            BIOGASES
+        </div>
+
+        <nav>
+
+            <a href="#inicio">Início</a>
+
+            <a href="#biogases">Biogases</a>
+
+            <a href="#producao">Produção</a>
+
+            <a href="#sustentabilidade">Sustentabilidade</a>
+
+            <!-- REDIRECIONAMENTO -->
+
+            <a href="contato.html" class="contato">
+                Contato
+            </a>
+
+        </nav>
+
+        <a href="index.html">
+            ← Voltar
+        </a>
+
+    </header>
+
+
+
+    <!-- INÍCIO -->
+
+    <section class="inicio" id="inicio">
+
+        <div>
+
+            <h1>
+                Energia que vem da natureza
+            </h1>
+
+            <p>
+                Os biogases são uma alternativa sustentável para
+                a produção de energia, aproveitando resíduos orgânicos
+                e transformando-os em uma fonte energética.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- BIOGASES -->
+
+    <section id="biogases">
+
+        <h2>
+            O que são biogases?
+        </h2>
+
+        <p>
+            Biogases são gases produzidos a partir da decomposição
+            de matéria orgânica. Eles podem ser utilizados como
+            fonte de energia e também contribuem para o aproveitamento
+            de resíduos que seriam descartados no meio ambiente.
+        </p>
+
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>
+                    Energia
+                </h3>
+
+                <p>
+                    Pode ser utilizado para geração de energia
+                    elétrica e térmica.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Resíduos
+                </h3>
+
+                <p>
+                    Aproveita materiais orgânicos que poderiam
+                    ser descartados.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Sustentabilidade
+                </h3>
+
+                <p>
+                    Incentiva o uso de fontes renováveis
+                    e o reaproveitamento de recursos.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRODUÇÃO -->
+
+    <section class="producao" id="producao">
+
+        <h2>
+            Como é produzido?
+        </h2>
+
+        <p>
+            A produção acontece por meio da decomposição de
+            matéria orgânica em um ambiente sem oxigênio.
+            Esse processo é conhecido como digestão anaeróbia
+            e resulta na formação de uma mistura de gases.
+        </p>
+
+    </section>
+
+
+    <!-- SUSTENTABILIDADE -->
+
+    <section id="sustentabilidade">
+
+        <h2>
+            Biogases e sustentabilidade
+        </h2>
+
+        <p>
+            O aproveitamento de biogases pode contribuir para
+            uma economia mais sustentável, promovendo o
+            reaproveitamento de resíduos e a utilização de
+            fontes alternativas de energia.
+        </p>
+
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>
+                    ♻ Reaproveitamento
+                </h3>
+
+                <p>
+                    Resíduos orgânicos podem ser utilizados
+                    como matéria-prima.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    ⚡ Energia
+                </h3>
+
+                <p>
+                    Os gases produzidos podem ser utilizados
+                    para geração de energia.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    🌱 Meio ambiente
+                </h3>
+
+                <p>
+                    A tecnologia ajuda a dar um novo destino
+                    aos resíduos orgânicos.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- RODAPÉ -->
+
+    <footer>
+
+        <p>
+            © 2026 - Projeto Biogases | Feira Cultural ETEC
+        </p>
+
+        <p>
+            Desenvolvido pelos alunos do 1º Informática
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
