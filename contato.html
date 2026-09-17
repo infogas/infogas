@@ -419,7 +419,7 @@
                     <label for="nome">Nome</label>
                     <input type="text" id="nome" placeholder="Seu nome" required>
 
-                    <label for="email">E-mail</label>
+                    <label for="email"> E-mail</label>
                     <input type="email" id="email" placeholder="seuemail@exemplo.com" required>
 
                     <label for="assunto">Assunto</label>
@@ -446,22 +446,7 @@
         Desenvolvido pelos alunos do 1º Informática
     </footer>
 
-    <script>
-        // Este formulário ainda não está ligado a um servidor de e-mail.
-        // Por enquanto, ao enviar, mostramos uma confirmação visual e
-        // sugerimos o contato direto por e-mail, para não deixar o
-        // visitante achando que a mensagem foi enviada de verdade.
-        document.getElementById('form-contato').addEventListener('submit', function (evento) {
-            evento.preventDefault();
-            var status = document.getElementById('status-envio');
-            status.textContent = 'Recebemos seus dados! Se preferir uma resposta mais rápida, escreva direto para infogas1809@gmail.com.';
-            this.reset();
-        });
-    </script>
-
-    <script src="api.js">
-        // back com front, testeee
-    </script>
+    <script src="api.js"></script>
 
 </body>
 
