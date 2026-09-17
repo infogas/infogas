@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="InfoGás — conheça a equipe, as etapas e o desenvolvimento do projeto de biogás da ETEC.">
+
+    <meta name="theme-color" content="#123c40">
+
+    <title>InfoGás - Sobre Nós</title>
+
+
+    <style>
+
+:root{
+  --verde-escuro:#123c40;
+  --verde-profundo:#062f3a;
+  --teal:#1f7d78;
+  --teal-claro:#159a9c;
+  --menta:#d8ece9;
+  --menta-clara:#eaf4f2;
+  --laranja:#f39c12;
+  --fundo:#f5f7f4;
+  --texto:#2c3a3a;
+  --texto-suave:#55686a;
+  --branco:#fff;
+  --linha:#d5e1de;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:Inter,Segoe UI,Arial,sans-serif;
+  background:var(--fundo);
+  color:var(--texto);
+  line-height:1.55;
+}
+img{max-width:100%;display:block}
+
+header{
+  position:sticky;top:0;z-index:20;
+  min-height:72px;padding:0 6vw;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(245,247,244,.95);
+  border-bottom:1px solid var(--linha);
+  backdrop-filter:blur(10px);
+}
+.logo{
+  display:flex;align-items:center;gap:10px;
+  color:var(--verde-escuro);font-size:21px;font-weight:900;
+}
+.logo img{width:34px;height:34px;border-radius:50%;object-fit:contain}
+nav{display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+nav a{
+  text-decoration:none;color:var(--texto-suave);
+  font-size:13px;font-weight:700;padding:9px 12px;border-radius:8px;
+  transition:.2s ease;
+}
+nav a:hover{background:var(--menta);color:var(--verde-escuro)}
+nav a.pagina-atual{background:var(--verde-escuro);color:#fff}
+.contato{background:var(--teal)!important;color:#fff!important}
+.contato:hover{background:var(--teal-claro)!important}
+
+.inicio{
+  min-height:590px;padding:70px 8vw 75px;
+  display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,.65fr);
+  align-items:end;gap:60px;color:#fff;
+  background:
+    radial-gradient(circle at 82% 22%,rgba(21,154,156,.35),transparent 23%),
+    linear-gradient(120deg,var(--verde-profundo),var(--verde-escuro) 56%,#185a59);
+  position:relative;overflow:hidden;
+}
+.inicio:after{
+  content:"INFOGÁS / 2026";
+  position:absolute;right:7vw;top:42%;
+  font-size:12px;letter-spacing:4px;font-weight:800;
+  writing-mode:vertical-rl;opacity:.45;
+}
+.inicio .selo{
+  display:inline-block;margin-bottom:20px;
+  padding:6px 10px;border-left:4px solid var(--laranja);
+  color:#ffd27a;font-size:11px;font-weight:900;letter-spacing:2px;
+}
+.inicio h1{
+  font-size:clamp(56px,10vw,128px);
+  line-height:.82;letter-spacing:-7px;font-weight:950;margin-bottom:28px;
+}
+.inicio h1 span{color:#56c9c4}
+.inicio p{
+  max-width:680px;font-size:18px;color:#e5f1ef;
+  border-left:1px solid rgba(255,255,255,.3);padding-left:20px;
+}
+
+.faixa{
+  padding:28px 8vw;background:var(--menta);
+  color:var(--verde-escuro);text-align:left;
+  border-bottom:1px solid #bfd8d4;
+}
+.faixa p{max-width:920px;font-size:17px;font-weight:750}
+
+.apresentacao{
+  max-width:1120px;margin:0 auto;padding:100px 30px;
+  display:grid;grid-template-columns:1.35fr .65fr;gap:90px;align-items:center;
+}
+.texto-apresentacao h3{
+  font-size:42px;line-height:1;letter-spacing:-2px;margin-bottom:25px;
+  color:var(--verde-escuro);
+}
+.texto-apresentacao p{max-width:680px;color:var(--texto-suave);margin-bottom:14px;font-size:16px}
+.numero{
+  background:var(--verde-escuro);color:#fff;padding:35px;min-height:310px;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  box-shadow:0 18px 45px rgba(18,60,64,.15);transform:rotate(2deg);
+}
+.numero span{font-size:64px;line-height:1;color:#56c9c4;font-weight:900}
+.numero h3{font-size:28px;margin:10px 0}
+.numero p{color:#d8e9e6}
+.numero strong{color:#fff;font-size:17px}
+
+.equipes{
+  padding:95px 6vw 115px;background:var(--menta-clara);
+}
+.titulo-secao{max-width:1120px;margin:0 auto 45px}
+.titulo-secao h2{
+  font-size:46px;letter-spacing:-2px;line-height:1;
+  margin-bottom:10px;color:var(--verde-escuro);
+}
+.titulo-secao p{max-width:650px;color:var(--texto-suave)}
+.equipes-grid{
+  max-width:1120px;margin:auto;
+  display:grid;grid-template-columns:repeat(12,1fr);gap:14px;
+}
+.equipe{
+  min-height:245px;padding:25px;
+  border:1px solid rgba(18,60,64,.13);
+  background:var(--branco);
+  display:flex;flex-direction:column;justify-content:space-between;
+  position:relative;overflow:hidden;
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+.equipe:hover{transform:translateY(-7px);box-shadow:0 18px 40px rgba(18,60,64,.12)}
+.equipe:nth-child(1){grid-column:span 7;background:var(--verde-escuro);color:#fff;min-height:290px}
+.equipe:nth-child(2){grid-column:span 5;background:#fff}
+.equipe:nth-child(3){grid-column:span 4;background:var(--verde-profundo);color:#fff}
+.equipe:nth-child(4){grid-column:span 4;background:var(--laranja)}
+.equipe:nth-child(5){grid-column:span 4;background:#fff}
+.equipe:nth-child(6){grid-column:span 12;min-height:175px;flex-direction:row;align-items:end;gap:25px}
+.equipe-icone{font-size:32px;margin-bottom:18px}
+.equipe h3{font-size:22px;line-height:1.05;letter-spacing:-.5px}
+.equipe p{font-size:14px;color:var(--texto-suave);max-width:500px}
+.equipe:nth-child(1) p,.equipe:nth-child(3) p{color:#d8e9e6}
+.equipe:nth-child(4) p{color:#4d3515}
+.funcao{
+  align-self:flex-start;margin-top:20px;font-size:10px;font-weight:900;
+  letter-spacing:1.5px;padding:5px 8px;border:1px solid currentColor;border-radius:3px;
+}
+
+.timeline-section{
+  max-width:1120px;margin:0 auto;padding:115px 30px;
+}
+.timeline-section .titulo-secao{
+  display:flex;justify-content:space-between;align-items:end;
+  border-bottom:2px solid var(--verde-escuro);padding-bottom:20px;
+}
+.timeline{position:relative;padding:35px 0}
+.timeline:before{
+  content:"";position:absolute;left:50%;top:10px;bottom:10px;
+  width:4px;border-radius:10px;
+  background:linear-gradient(to bottom,var(--teal-claro),var(--laranja),var(--teal));
+  opacity:.7;
+}
+.timeline-item{
+  width:50%;padding:25px 55px 45px 0;position:relative;
+}
+.timeline-item:nth-child(even){margin-left:50%;padding:25px 0 45px 55px}
+.timeline-ponto{
+  position:absolute;right:-18px;top:29px;
+  width:36px;height:36px;border-radius:50%;
+  background:var(--teal-claro);border:6px solid var(--fundo);
+  color:#fff;font-size:11px;font-weight:900;
+  display:grid;place-items:center;z-index:2;
+  box-shadow:0 0 0 2px rgba(21,154,156,.25);
+  transition:.25s ease;
+}
+.timeline-item:nth-child(odd) .timeline-ponto{background:var(--verde-escuro)}
+.timeline-item:nth-child(3n) .timeline-ponto{background:var(--laranja)}
+.timeline-item:hover .timeline-ponto{
+  transform:scale(1.22);box-shadow:0 0 0 7px rgba(21,154,156,.12);
+}
+.timeline-item:nth-child(even) .timeline-ponto{left:-18px;right:auto}
+.timeline-card{
+  display:grid;grid-template-columns:145px 1fr;min-height:175px;
+  background:#fff;border:1px solid var(--linha);
+  border-radius:14px;overflow:hidden;
+  box-shadow:0 8px 24px rgba(18,60,64,.07);
+  transition:.25s ease;
+}
+.timeline-item:nth-child(even) .timeline-card{grid-template-columns:1fr 145px}
+.timeline-item:hover .timeline-card{
+  transform:translateY(-4px);
+  border-color:#a7cbc6;
+  box-shadow:0 16px 35px rgba(18,60,64,.12);
+}
+.timeline-foto{height:100%;min-height:175px;position:relative}
+.timeline-foto:after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(18,60,64,.12),transparent 55%);
+  pointer-events:none;
+}
+.timeline-foto img{width:100%;height:100%;object-fit:cover;filter:saturate(.88)}
+.timeline-conteudo{padding:23px}
+.timeline-conteudo h3{
+  font-size:20px;line-height:1.05;margin-bottom:10px;color:var(--verde-escuro);
+}
+.timeline-conteudo p{font-size:13px;color:var(--texto-suave)}
+.timeline-item:nth-child(3) .timeline-card,
+.timeline-item:nth-child(7) .timeline-card{border-top:5px solid var(--laranja)}
+.timeline-item:nth-child(4) .timeline-card,
+.timeline-item:nth-child(8) .timeline-card{background:var(--menta-clara)}
+
+.final{
+  padding:105px 8vw;background:var(--verde-profundo);color:#fff;text-align:center;
+}
+.final h2{
+  font-size:clamp(38px,6vw,72px);line-height:.95;letter-spacing:-3px;
+}
+.final h2 span{color:#56c9c4}
+.final p{max-width:650px;margin:24px auto 0;color:#cbdedb}
+
+footer{
+  padding:35px 8vw;background:#04252d;color:#9eb5b2;font-size:12px;line-height:1.8;
+  display:flex;justify-content:space-between;align-items:center;gap:20px;
+}
+footer strong{font-size:20px;color:#56c9c4;letter-spacing:2px}
+
+@media(max-width:800px){
+  header{padding:12px 5vw;align-items:flex-start}
+  nav{justify-content:flex-end}
+  .inicio{grid-template-columns:1fr;min-height:500px;padding:65px 7vw}
+  .inicio h1{font-size:68px;letter-spacing:-4px}
+  .inicio:after{display:none}
+  .apresentacao{grid-template-columns:1fr;gap:45px;padding:70px 25px}
+  .numero{transform:none}
+  .equipes-grid{grid-template-columns:1fr}
+  .equipe,.equipe:nth-child(n){grid-column:span 1;min-height:220px}
+  .equipe:nth-child(6){display:flex}
+  .timeline:before{left:18px}
+  .timeline-item,.timeline-item:nth-child(even){width:100%;margin:0;padding:20px 0 30px 55px}
+  .timeline-ponto,.timeline-item:nth-child(even) .timeline-ponto{left:0;right:auto}
+  .timeline-card,.timeline-item:nth-child(even) .timeline-card{grid-template-columns:110px 1fr}
+  .timeline-section{padding:75px 20px}
+  .timeline-section .titulo-secao{display:block}
+  footer{display:block}
+}
+@media(max-width:560px){
+  nav a{font-size:11px;padding:7px 6px}
+  .inicio h1{font-size:54px}
+  .timeline-card,.timeline-item:nth-child(even) .timeline-card{display:block}
+  .timeline-foto{height:150px}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important}
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         CABEÇALHO
+    ===================================================== -->
+
+    <header>
+
+        <div class="logo">
+
+            <!--
+                Se tiverem uma logo, podem colocar:
+
+                <img src="imgs/biogas.JPEG"
+                     alt="Logo InfoGás">
+            -->
+
+            <span>INFOGÁS</span>
+
+        </div>
+
+
+        <nav>
+
+            <a href="index.html">
+                Início
+            </a>
+
+            <a href="calculadora.html">
+                Calculadora
+            </a>
+
+            <a href="sustentabilidade.html">
+                Sustentabilidade
+            </a>
+
+            <a href="nos.html"
+               class="pagina-atual">
+
+                Sobre Nós
+
+            </a>
+
+            <a href="contato.html"
+               class="contato">
+
+                Contato
+
+            </a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         INÍCIO DA PÁGINA
+    ===================================================== -->
+
+    <section class="inicio">
+
+        <span class="selo">
+            FEIRA CULTURAL · ETEC
+        </span>
+
+
+        <h1>
+
+            Sobre <span>Nós</span>
+
+        </h1>
+
+
+        <p>
+
+            Conheça a equipe por trás do projeto InfoGás e acompanhe os principais momentos dessa trajetória.
+
+            Somos estudantes reunidos pela curiosidade, pela ciência e pela vontade de transformar conhecimento em possibilidades.
+
+        </p>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         FRASE
+    ===================================================== -->
+
+    <section class="faixa">
+
+        <p>
+
+            <strong>
+                Uma ideia compartilhada por várias pessoas, com um objetivo em comum:
+            </strong>
+
+            aprender, pesquisar e mostrar como o aproveitamento de resíduos pode contribuir para um futuro mais sustentável.
+
+        </p>
+
+    </section>
+
+
+
+    <main>
+
+
+        <!-- =================================================
+             NOSSA HISTÓRIA
+        ================================================= -->
+
+        <div class="titulo-secao">
+
+            <h2>
+                Como tudo começou
+            </h2>
+
+            <p>
+                Antes da maquete, do site e da apresentação, existia uma pergunta que deu origem ao projeto.
+            </p>
+
+        </div>
+
+
+        <section class="apresentacao">
+
+
+            <div class="texto-apresentacao">
+
+                <h3>
+                    Da pergunta ao projeto
+                </h3>
+
+
+                <p>
+
+                    O InfoGás surgiu durante o desenvolvimento do nosso projeto para a Feira Cultural da ETEC.
+
+                </p>
+
+
+                <p>
+
+                    Ao observar a quantidade de resíduos
+                    orgânicos produzidos diariamente no
+                    ambiente escolar, começamos a pensar
+                    em maneiras de reaproveitar esse material.
+
+                </p>
+
+
+                <p>
+
+                    Foi a partir dessa busca que chegamos ao biogás.
+
+                    A partir daí, começamos a pesquisar como
+                    funciona a digestão anaeróbia, quais
+                    materiais podem ser utilizados e como
+                    o gás produzido poderia ser aproveitado.
+
+                </p>
+
+
+                <p>
+
+                    O projeto cresceu à medida que cada integrante passou a contribuir com suas próprias habilidades.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="numero">
+
+                <span>
+                    01
+                </span>
+
+
+                <h3>
+                    O começo
+                </h3>
+
+
+                <p>
+
+                    O ponto de partida foi uma pergunta simples:
+
+                    <br><br>
+
+                    <strong>
+                        "Será que aquilo que chamamos de
+                        resíduo pode se transformar em energia?"
+                    </strong>
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             EQUIPES
+        ================================================= -->
+
+        <section class="equipes">
+
+
+            <div class="titulo-secao">
+
+                <h2>
+                    Quem faz o projeto
+                </h2>
+
+                <p>
+
+                    Para transformar a ideia em realidade, organizamos o trabalho em diferentes áreas.
+                    Cada equipe participa de uma etapa importante do desenvolvimento do InfoGás.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="equipes-grid">
+
+
+                
+
+
+
+                <!-- EQUIPE 4 -->
+
+                <div class="equipe">
+
+                    <div class="equipe-icone">
+                        💻
+                    </div>
+
+
+                    <h3>
+                        Equipe de Tecnologia
+                    </h3>
+
+
+                    <p>
+
+                        Responsável pela criação do site,
+                        organização das informações e
+                        apresentação digital do projeto.
+
+                    </p>
+
+
+                    <span class="funcao">
+                        TECNOLOGIA
+                    </span>
+
+                </div>
+
+
+
+
+                <!-- EQUIPE 1 -->
+
+                <div class="equipe">
+
+                    <div class="equipe-icone">
+                        🔬
+                    </div>
+
+
+                    <h3>
+                        Equipe de Pesquisa
+                    </h3>
+
+
+                    <p>
+
+                        Responsável por buscar informações
+                        sobre o biogás, digestão anaeróbia,
+                        biodigestores e produção de energia.
+
+                    </p>
+
+
+                    <span class="funcao">
+                        PESQUISA E CIÊNCIA
+                    </span>
+
+                </div>
+
+
+
+
+
+                <!-- EQUIPE 6 -->
+
+                <div class="equipe">
+
+                    <div class="equipe-icone">
+                        🎤
+                    </div>
+
+
+                    <h3>
+                        Equipe de Apresentação
+                    </h3>
+
+
+                    <p>
+
+                        Responsável por preparar as explicações
+                        e apresentar o projeto aos visitantes
+                        durante a feira.
+
+                    </p>
+
+
+                    <span class="funcao">
+                        COMUNICAÇÃO
+                    </span>
+
+                </div>
+
+
+
+
+
+                <!-- EQUIPE 3 -->
+
+                <div class="equipe">
+
+                    <div class="equipe-icone">
+                        🏗️
+                    </div>
+
+
+                    <h3>
+                        Equipe de Maquete
+                    </h3>
+
+
+                    <p>
+
+                        Responsável pelo desenvolvimento
+                        visual e estrutural da representação
+                        do sistema de produção de biogás.
+
+                    </p>
+
+
+                    <span class="funcao">
+                        CONSTRUÇÃO
+                    </span>
+
+                </div>
+
+
+
+
+
+                <!-- EQUIPE 5 -->
+
+                <div class="equipe">
+
+                    <div class="equipe-icone">
+                        🎨
+                    </div>
+
+
+                    <h3>
+                        Equipe de Design
+                    </h3>
+
+
+                    <p>
+
+                        Responsável pela identidade visual,
+                        cartazes, elementos gráficos e
+                        organização estética do projeto.
+
+                    </p>
+
+
+                    <span class="funcao">
+                        DESIGN
+                    </span>
+
+                </div>
+
+
+
+
+
+                <!-- EQUIPE 2 -->
+
+                <div class="equipe">
+
+                    <div class="equipe-icone">
+                        🧪
+                    </div>
+
+
+                    <h3>
+                        Equipe de Experimentos
+                    </h3>
+
+
+                    <p>
+
+                        Responsável pelos testes, observações
+                        e desenvolvimento da parte prática
+                        relacionada ao projeto.
+
+                    </p>
+
+
+                    <span class="funcao">
+                        PARTE PRÁTICA
+                    </span>
+
+                </div>
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             TIMELINE
+        ================================================= -->
+
+        <section class="timeline-section">
+
+
+            <div class="titulo-secao">
+
+                <h2>
+                    Caminho do projeto
+                </h2>
+
+                <p>
+
+                    Oito momentos que mostram, em sequência, parte do caminho percorrido durante o desenvolvimento do projeto.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="timeline">
+
+
+                
+
+
+                <!-- =========================================
+                     FOTO 1
+                ========================================== -->
+
+                <div class="timeline-item">
+
+                    <div class="timeline-ponto">
+                        1
+                    </div>
+
+
+                    <div class="timeline-card">
+
+                        <div class="timeline-foto">
+
+                            <img
+                                src="imgs/prod_maquete.jpeg"
+                                alt="Equipe iniciando o projeto"
+                            >
+
+                        </div>
+
+
+                        <div class="timeline-conteudo">
+
+                            <h3>
+                                Primeiras impressões. 
+                            </h3>
+
+
+                            <p>
+
+                                Primeiro momento de discussão
+                                sobre o tema e definição do
+                                problema que queríamos investigar.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+
+
+                <!-- =========================================
+                     FOTO 3
+                ========================================== -->
+
+                <div class="timeline-item">
+
+                    <div class="timeline-ponto">
+                        2
+                    </div>
+
+
+                    <div class="timeline-card">
+
+                        <div class="timeline-foto">
+
+                            <img
+                                src="imgs/nossos_devs.jpeg"
+                                alt="Equipe planejando o projeto"
+                            >
+
+                        </div>
+
+
+                        <div class="timeline-conteudo">
+
+                            <h3>
+                                Nossos dev's guerreiros!
+                            </h3>
+
+
+                            <p>
+
+                                Para nosso site ficar pronto, nossa equipe de tecnologia trabalhou 
+                                muito para organizar as informações e desenvolver o espaço digital
+                                de forma manual e agradavel.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+
+
+                <!-- =========================================
+                     FOTO 2
+                ========================================== -->
+
+                <div class="timeline-item">
+
+                    <div class="timeline-ponto">
+                        3
+                    </div>
+
+
+                    <div class="timeline-card">
+
+                        <div class="timeline-foto">
+
+                            <img
+                                src="imgs/prod_maquete1.jpeg"
+                                alt="Alunos realizando pesquisas"
+                            >
+
+                        </div>
+
+
+                        <div class="timeline-conteudo">
+
+                            <h3>
+                                A bendita maquete!
+                            </h3>
+
+
+                            <p>
+
+                                A maquete foi construída para representar
+                                o sistema de produção de biogás e
+                                demonstrar como o processo funciona.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+
+
+                <!-- =========================================
+                     FOTO 5
+                ========================================== -->
+
+                <div class="timeline-item">
+
+                    <div class="timeline-ponto">
+                        4
+                    </div>
+
+
+                    <div class="timeline-card">
+
+                        <div class="timeline-foto">
+
+                            <img
+                                src="imgs/projeção_site.jpeg"
+                                alt="Testes do projeto"
+                            >
+
+                        </div>
+
+
+                        <div class="timeline-conteudo">
+
+                            <h3>
+                                O tal do primeiro info? 
+                            </h3>
+
+
+                            <p>
+
+                                Com dedicação e trabalho em equipe, conseguimos desenvolver o projeto de forma manual e digital,
+                                para ter o melhor possivel dentro dos conformes, 100% entregue. 
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+
+
+                <!-- =========================================
+                     FOTO 4
+                ========================================== -->
+
+                <div class="timeline-item">
+
+                    <div class="timeline-ponto">
+                        5
+                    </div>
+
+
+                    <div class="timeline-card">
+
+                        <div class="timeline-foto">
+
+                            <img
+                                src="imgs/naoseinome.jpeg"
+                                alt="Construção da maquete"
+                            >
+
+                        </div>
+
+
+                        <div class="timeline-conteudo">
+
+                            <h3>
+                                Dedicação e trabalho em equipe e possivel? 
+                            </h3>
+
+
+                            <p>
+
+                                Começamos a transformar nossas
+                                ideias em uma representação
+                                física do sistema.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+
+
+                <!-- =========================================
+                     FOTO 7
+                ========================================== -->
+
+                <div class="timeline-item">
+
+                    <div class="timeline-ponto">
+                        6
+                    </div>
+
+
+                    <div class="timeline-card">
+
+                        <div class="timeline-foto">
+
+                            <img
+                                src="imgs/"
+                                alt="Preparação para a feira"
+                            >
+
+                        </div>
+
+
+                        <div class="timeline-conteudo">
+
+                            <h3>
+                                Preparação para a feira
+                            </h3>
+
+
+                            <p>
+
+                                Reunimos as informações,
+                                finalizamos os materiais e
+                                começamos a preparar a apresentação.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+
+
+                <!-- =========================================
+                     FOTO 6
+                ========================================== -->
+
+                <div class="timeline-item">
+
+                    <div class="timeline-ponto">
+                        7
+                    </div>
+
+
+                    <div class="timeline-card">
+
+                        <div class="timeline-foto">
+
+                            <img
+                                src="imgs/codiguzinhuu.jpeg"
+                                alt="Desenvolvimento do site"
+                            >
+
+                        </div>
+
+
+                        <div class="timeline-conteudo">
+
+                            <h3>
+                                Desenvolvimento do site
+                            </h3>
+
+
+                            <p>
+
+                                Organizamos as informações e
+                                desenvolvemos o espaço digital
+                                para apresentar nosso projeto.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+
+
+                <!-- =========================================
+                     FOTO 8
+                ========================================== -->
+
+                <div class="timeline-item">
+
+                    <div class="timeline-ponto">
+                        8
+                    </div>
+
+
+                    <div class="timeline-card">
+
+                        <div class="timeline-foto">
+
+                            <img
+                                src="imgs/foto8.jpg"
+                                alt="Equipe durante a Feira Cultural"
+                            >
+
+                        </div>
+
+
+                        <div class="timeline-conteudo">
+
+                            <h3>
+                                O dia da Feira
+                            </h3>
+
+
+                            <p>
+
+                                Finalmente chegou o momento
+                                de compartilhar todo o trabalho
+                                desenvolvido com os visitantes.
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             MENSAGEM FINAL
+        ================================================= -->
+
+        <section class="final">
+
+            <h2>
+
+                Um projeto construído por
+                <span>muitas mãos.</span>
+
+            </h2>
+
+
+            <p>
+
+                O InfoGás nasceu da união entre pesquisa, criatividade, tecnologia e trabalho em equipe.
+                Cada etapa representa um pouco do esforço
+                colocado para transformar uma ideia em
+                conhecimento.
+
+            </p>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         RODAPÉ
+    ===================================================== -->
+
+    <footer>
+
+        <strong>
+            INFOGÁS
+        </strong>
+
+        <br>
+
+        Projeto desenvolvido para a Feira Cultural da ETEC.
+
+        <br>
+
+        2026 · Energia · Sustentabilidade · Inovação
+
+    </footer>
+
+
+</body>
+
+</html>
